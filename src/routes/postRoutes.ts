@@ -178,4 +178,86 @@ router.get("/:id", postController.getById.bind(postController));
  */
 router.post("/", postController.post.bind(postController));
 
+/**
+ * @swagger
+ * /post/{id}:
+ *   put:
+ *     summary: Update a post
+ *     description: Updates a post with new data, replacing its current content
+ *     tags: [Posts]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The post ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 description: Updated title
+ *                 example: "Updated Title"
+ *               content:
+ *                 type: string
+ *                 description: Updated content
+ *                 example: "Updated content for this post"
+ *               sender:
+ *                 type: string
+ *                 description: Updated sender ID
+ *                 example: "user123"
+ *     responses:
+ *       200:
+ *         description: Post updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 title:
+ *                   type: string
+ *                 content:
+ *                   type: string
+ *                 sender:
+ *                   type: string
+ *                 updatedAt:
+ *                   type: string
+ *                   format: date-time
+ *       404:
+ *         description: Post not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *       400:
+ *         description: Bad request - invalid data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ */
+router.put("/:id", postController.put.bind(postController));
+
 export default router;
