@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import dotenv from "dotenv";
 import postRoutes from "./routes/postRoutes";
+import commentRoutes from "./routes/commentRoutes";
 import connectDB from "./db";
 
 dotenv.config({ path: ".env.dev" });
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/post", postRoutes);
+app.use("/comment", commentRoutes);
 
 const initApp = async (): Promise<Express> => {
   try {
