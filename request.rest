@@ -1,6 +1,16 @@
 ### Posts API Tests
 
-### 1. Create a new post
+### 1. Get all posts
+GET http://localhost:3000/post
+
+###
+
+### 2. Get posts filtered by sender
+GET http://localhost:3000/post?sender=user123
+
+###
+
+### 3. Create a new post
 POST http://localhost:3000/post
 Content-Type: application/json
 
@@ -12,7 +22,7 @@ Content-Type: application/json
 
 ###
 
-### 2. Create another post
+### 4. Create another post
 POST http://localhost:3000/post
 Content-Type: application/json
 
@@ -24,7 +34,7 @@ Content-Type: application/json
 
 ###
 
-### 3. Create post with missing field (should fail)
+### 5. Create post with missing field (should fail)
 POST http://localhost:3000/post
 Content-Type: application/json
 

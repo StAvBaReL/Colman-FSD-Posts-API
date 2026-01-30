@@ -26,6 +26,7 @@ app.use("/post", postRoutes);
 const initApp = async (): Promise<Express> => {
   try {
     const mongoUri = process.env.MONGODB_URI;
+    
     if (!mongoUri) {
       throw new Error("MONGODB_URI is not defined in environment variables");
     }

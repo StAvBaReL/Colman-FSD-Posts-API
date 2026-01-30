@@ -6,6 +6,51 @@ const router = express.Router();
 /**
  * @swagger
  * /post:
+ *   get:
+ *     summary: Get all posts
+ *     description: Retrieve all posts from the database
+ *     tags: [Posts]
+ *     parameters:
+ *       - in: query
+ *         name: sender
+ *         schema:
+ *           type: string
+ *         description: Filter posts by sender ID
+ *       - in: query
+ *         name: title
+ *         schema:
+ *           type: string
+ *         description: Filter posts by title
+ *     responses:
+ *       200:
+ *         description: List of all posts
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   _id:
+ *                     type: string
+ *                   title:
+ *                     type: string
+ *                   content:
+ *                     type: string
+ *                   sender:
+ *                     type: string
+ *                   createdAt:
+ *                     type: string
+ *                     format: date-time
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
  *   post:
  *     summary: Add a new post
  *     description: Allows a user to add a new post to the database
@@ -71,6 +116,7 @@ const router = express.Router();
  *                 error:
  *                   type: string
  */
+router.get("/", postController.get.bind(postController));
 router.post("/", postController.post.bind(postController));
 
 export default router;
