@@ -95,4 +95,28 @@ router.get("/", commentController.get.bind(commentController));
  */
 router.post("/", commentController.post.bind(commentController));
 
+/**
+ * @swagger
+ * /comment/{id}:
+ *   delete:
+ *     summary: Delete a comment
+ *     description: Delete a comment by its ID
+ *     tags: [Comments]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The comment ID
+ *     responses:
+ *       200:
+ *         description: Comment deleted successfully
+ *       404:
+ *         description: Comment not found
+ *       500:
+ *         description: Server error
+ */
+router.delete("/:id", commentController.del.bind(commentController));
+
 export default router;
