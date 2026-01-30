@@ -108,3 +108,8 @@ Content-Type: application/json
   "sender": "user456"
 }
 
+###
+
+### 2. Get all comments
+GET http://localhost:3000/comment
+

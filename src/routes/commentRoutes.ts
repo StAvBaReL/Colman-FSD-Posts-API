@@ -6,6 +6,42 @@ const router = express.Router();
 /**
  * @swagger
  * /comment:
+ *   get:
+ *     summary: Get all comments
+ *     description: Retrieve a list of all comments or filter by postId
+ *     tags: [Comments]
+ *     parameters:
+ *       - in: query
+ *         name: postId
+ *         schema:
+ *           type: string
+ *         description: Filter comments by post ID
+ *     responses:
+ *       200:
+ *         description: A list of comments
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   _id:
+ *                     type: string
+ *                   content:
+ *                     type: string
+ *                   postId:
+ *                     type: string
+ *                   sender:
+ *                     type: string
+ *       500:
+ *         description: Server error
+ */
+router.get("/", commentController.get.bind(commentController));
+
+/**
+ * @swagger
+ * /comment:
  *   post:
  *     summary: Add a new comment
  *     description: Adds a new comment to a specific post
