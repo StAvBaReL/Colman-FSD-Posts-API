@@ -95,4 +95,55 @@ router.get("/", commentController.get.bind(commentController));
  */
 router.post("/", commentController.post.bind(commentController));
 
+/**
+ * @swagger
+ * /comment/{id}:
+ *   put:
+ *     summary: Update a comment
+ *     description: Updates a comment's content
+ *     tags: [Comments]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The comment ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - content
+ *             properties:
+ *               content:
+ *                 type: string
+ *                 description: The new content
+ *             example:
+ *               content: "Updated comment content"
+ *     responses:
+ *       200:
+ *         description: Comment updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 content:
+ *                   type: string
+ *                 postId:
+ *                   type: string
+ *                 sender:
+ *                   type: string
+ *       404:
+ *         description: Comment not found
+ *       500:
+ *         description: Server error
+ */
+router.put("/:id", commentController.put.bind(commentController));
+
 export default router;
