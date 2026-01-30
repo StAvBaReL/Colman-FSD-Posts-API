@@ -128,3 +128,6 @@ Content-Type: application/json
   "content": "Updated comment content"
 }
 
+### 5. Delete a comment
+DELETE http://localhost:3000/comment/60d0fe4f5311236168a109ca
+

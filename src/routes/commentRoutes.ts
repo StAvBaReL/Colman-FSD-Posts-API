@@ -109,6 +109,9 @@ router.post("/", commentController.post.bind(commentController));
  *         schema:
  *           type: string
  *         description: The comment ID
+ *     responses:
+ *       200:
+ *         description: Comment deleted successfully
  *     requestBody:
  *       required: true
  *       content:
@@ -123,6 +126,15 @@ router.post("/", commentController.post.bind(commentController));
  *                 description: The new content
  *             example:
  *               content: "Updated comment content"
+ */
+router.delete("/:id", commentController.del.bind(commentController));
+
+/**
+ * @swagger
+ * /comment/{id}:
+ *   delete:
+ *     summary: Delete a comment
+ *     description: Delete a comment by its ID
  *     responses:
  *       200:
  *         description: Comment updated successfully
@@ -145,5 +157,6 @@ router.post("/", commentController.post.bind(commentController));
  *         description: Server error
  */
 router.put("/:id", commentController.put.bind(commentController));
+
 
 export default router;
