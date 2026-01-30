@@ -1,32 +1,6 @@
 ### Posts API Tests
 
-### 1. Get all posts
-GET http://localhost:3000/post
-
-###
-
-### 2. Get posts filtered by sender (user123)
-GET http://localhost:3000/post?sender=user123
-
-###
-
-### 2b. Get posts filtered by different sender (user456)
-GET http://localhost:3000/post?sender=user456
-
-###
-
-### 3. Get a post by ID
-# Replace <post_id> with an actual post ID from step 1 or after creating a post
-GET http://localhost:3000/post/<post_id>
-
-###
-
-### 4. Get a post with invalid ID (should return 404 or error)
-GET http://localhost:3000/post/invalidid123
-
-###
-
-### 5. Create a new post
+### 1. Create a new post
 POST http://localhost:3000/post
 Content-Type: application/json
 
@@ -38,7 +12,7 @@ Content-Type: application/json
 
 ###
 
-### 6. Create another post
+### 2. Create another post
 POST http://localhost:3000/post
 Content-Type: application/json
 
@@ -50,7 +24,7 @@ Content-Type: application/json
 
 ###
 
-### 7. Create post with missing field (should fail)
+### 3. Create post with missing field (should fail)
 POST http://localhost:3000/post
 Content-Type: application/json
 
@@ -61,7 +35,33 @@ Content-Type: application/json
 
 ###
 
-### 8. Update a post
+### 4. Get all posts
+GET http://localhost:3000/post
+
+###
+
+### 5. Get a post by ID
+# Replace <post_id> with an actual post ID from step 1 or after creating a post
+GET http://localhost:3000/post/<post_id>
+
+###
+
+### 6. Get a post with invalid ID (should return 404 or error)
+GET http://localhost:3000/post/invalidid123
+
+###
+
+### 7. Get posts filtered by sender (user123)
+GET http://localhost:3000/post?sender=user123
+
+###
+
+### 8. Get posts filtered by different sender (user456)
+GET http://localhost:3000/post?sender=user456
+
+###
+
+### 9. Update a post
 # Replace <post_id> with an actual post ID from step 1 or after creating a post
 PUT http://localhost:3000/post/<post_id>
 Content-Type: application/json
@@ -74,7 +74,7 @@ Content-Type: application/json
 
 ###
 
-### 9. Update a post with partial data
+### 10. Update a post with partial data
 PUT http://localhost:3000/post/<post_id>
 Content-Type: application/json
 
@@ -84,7 +84,7 @@ Content-Type: application/json
 
 ###
 
-### 10. Update a post with invalid ID (should return 404)
+### 11. Update a post with invalid ID (should return 404)
 PUT http://localhost:3000/post/invalidid123
 Content-Type: application/json
 
