@@ -60,3 +60,38 @@ Content-Type: application/json
 }
 
 ###
+
+### 8. Update a post
+# Replace <post_id> with an actual post ID from step 1 or after creating a post
+PUT http://localhost:3000/post/<post_id>
+Content-Type: application/json
+
+{
+  "title": "Updated Title",
+  "content": "Updated content for this post",
+  "sender": "user123"
+}
+
+###
+
+### 9. Update a post with partial data
+PUT http://localhost:3000/post/<post_id>
+Content-Type: application/json
+
+{
+  "content": "Only updating the content field"
+}
+
+###
+
+### 10. Update a post with invalid ID (should return 404)
+PUT http://localhost:3000/post/invalidid123
+Content-Type: application/json
+
+{
+  "title": "This won't work",
+  "content": "Invalid ID",
+  "sender": "user123"
+}
+
+###
