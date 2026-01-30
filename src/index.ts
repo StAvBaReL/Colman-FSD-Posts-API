@@ -1,7 +1,7 @@
 import express, { Express } from "express";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import postRoutes from "./routes/postRoutes";
+import connectDB from "./db";
 
 dotenv.config({ path: ".env.dev" });
 
@@ -25,14 +25,7 @@ app.use("/post", postRoutes);
 
 const initApp = async (): Promise<Express> => {
   try {
-    const mongoUri = process.env.MONGODB_URI;
-    if (!mongoUri) {
-      throw new Error("MONGODB_URI is not defined in environment variables");
-    }
-    
-    await mongoose.connect(mongoUri);
-    console.log("Connected to MongoDB");
-    
+    await connectDB();
     return app;
   } catch (error) {
     console.error("Failed to initialize app:", error);
