@@ -1,5 +1,7 @@
 import express, { Express } from "express";
 import dotenv from "dotenv";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpecs from "./swagger";
 import postRoutes from "./routes/postRoutes";
 import commentRoutes from "./routes/commentRoutes";
 import connectDB from "./db";
@@ -22,6 +24,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Posts & Comments API is running" });
 });
 
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
 
