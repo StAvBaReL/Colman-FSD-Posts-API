@@ -5,8 +5,13 @@ GET http://localhost:3000/post
 
 ###
 
-### 2. Get posts filtered by sender
+### 2. Get posts filtered by sender (user123)
 GET http://localhost:3000/post?sender=user123
+
+###
+
+### 2b. Get posts filtered by different sender (user456)
+GET http://localhost:3000/post?sender=user456
 
 ###
 
