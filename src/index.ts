@@ -6,11 +6,9 @@ dotenv.config({ path: ".env.dev" });
 
 const app = express();
 
-// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// CORS configuration
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "*");
@@ -18,18 +16,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes will be registered here
-// app.use("/post", postRoutes);
-// app.use("/comment", commentRoutes);
-
-// Health check endpoint
 app.get("/", (req, res) => {
   res.json({ message: "Posts & Comments API is running" });
 });
 
 const initApp = async (): Promise<Express> => {
   try {
-    // Connect to MongoDB
     const mongoUri = process.env.MONGODB_URI;
     if (!mongoUri) {
       throw new Error("MONGODB_URI is not defined in environment variables");
