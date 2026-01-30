@@ -118,3 +118,8 @@ GET http://localhost:3000/comment
 ### 3. Get comments by post ID
 GET http://localhost:3000/comment?postId=507f1f77bcf86cd799439011
 
+###
+
+### 4. Delete a comment
+DELETE http://localhost:3000/comment/60d0fe4f5311236168a109ca
+
