@@ -51,6 +51,66 @@ const router = express.Router();
  *               properties:
  *                 error:
  *                   type: string
+ */
+router.get("/", postController.get.bind(postController));
+
+/**
+ * @swagger
+ * /post/{id}:
+ *   get:
+ *     summary: Get a post by ID
+ *     description: Returns the post with the specified ID
+ *     tags: [Posts]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The post ID
+ *     responses:
+ *       200:
+ *         description: Post found successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 title:
+ *                   type: string
+ *                 content:
+ *                   type: string
+ *                 sender:
+ *                   type: string
+ *                 createdAt:
+ *                   type: string
+ *                   format: date-time
+ *       404:
+ *         description: Post not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ */
+router.get("/:id", postController.getById.bind(postController));
+
+/**
+ * @swagger
+ * /post:
  *   post:
  *     summary: Add a new post
  *     description: Allows a user to add a new post to the database
@@ -116,7 +176,6 @@ const router = express.Router();
  *                 error:
  *                   type: string
  */
-router.get("/", postController.get.bind(postController));
 router.post("/", postController.post.bind(postController));
 
 export default router;
