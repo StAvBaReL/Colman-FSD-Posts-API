@@ -113,3 +113,8 @@ Content-Type: application/json
 ### 2. Get all comments
 GET http://localhost:3000/comment
 
+###
+
+### 3. Get comments by post ID
+GET http://localhost:3000/comment?postId=507f1f77bcf86cd799439011
+
