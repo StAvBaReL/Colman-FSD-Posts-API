@@ -10,7 +10,18 @@ GET http://localhost:3000/post?sender=user123
 
 ###
 
-### 3. Create a new post
+### 3. Get a post by ID
+# Replace <post_id> with an actual post ID from step 1 or after creating a post
+GET http://localhost:3000/post/<post_id>
+
+###
+
+### 4. Get a post with invalid ID (should return 404 or error)
+GET http://localhost:3000/post/invalidid123
+
+###
+
+### 5. Create a new post
 POST http://localhost:3000/post
 Content-Type: application/json
 
@@ -22,7 +33,7 @@ Content-Type: application/json
 
 ###
 
-### 4. Create another post
+### 6. Create another post
 POST http://localhost:3000/post
 Content-Type: application/json
 
@@ -34,7 +45,7 @@ Content-Type: application/json
 
 ###
 
-### 5. Create post with missing field (should fail)
+### 7. Create post with missing field (should fail)
 POST http://localhost:3000/post
 Content-Type: application/json
 
