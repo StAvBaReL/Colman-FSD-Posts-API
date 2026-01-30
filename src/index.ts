@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import postRoutes from "./routes/postRoutes";
 
 dotenv.config({ path: ".env.dev" });
 
@@ -19,6 +20,8 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   res.json({ message: "Posts & Comments API is running" });
 });
+
+app.use("/post", postRoutes);
 
 const initApp = async (): Promise<Express> => {
   try {
